@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<script type="text/javascript" src="js/cn.tee3.avd-2.5.0.0.min.js"></script>
+		<style>
+			.userListBox{
+				width: 20%;
+				height: 100%;
+				box-sizing: border-box;
+				padding: 15px;
+				float: left;
+				border: 1px ;
+			}
+			.userListBox ul{
+				padding: 0px;
+				margin: 0px;
+				list-style: none;
+			}
+			.userListBox ul li{
+				text-align: center;
+				line-height: 40px;
+				cursor: pointer;
+			}
+			.userListBox ul li.current{
+				background: darkolivegreen;
+				color: #fff;;
+			}
+			#mediaDiv input{
+				display: block;
+				width: 369px;
+				line-height: 30px;		
+			}
+		</style>
+	</head>
+
+	<title>join room demo</title>
+
+	<body>
+		<div style="border: solid 1px black;width: 1165px;">
+			<div align="center" style="border-bottom: solid 1px black;padding-bottom: 5px;">
+				<p id="showUserName"></p>
+				<button onclick="joinRoom()" id="joinRoomBtn">加入会议</button>
+				<button id="leaveRoomBtn" style="display: none;">离开会议</button>
+			</div>
+			<div id="mediaDiv" style="border-bottom: solid 1px black;height: 350px;">
+				<div class="userListBox">
+					<ul id="userList">
+						<li class="current">所有人</li>
+					</ul>
+				</div>
+				<div style="width: 40%; float: left; box-sizing: border-box;">
+					<div>聊天</div>
+					<table>
+						<tr>
+							<td>
+							     <textarea id="messageColl" name="messageColl" disabled="disabled" type="textarea" cols="50" rows="17" style="resize:none"></textarea>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input id="message" placeholder="请输入内容" name="message" type="text" onkeydown="if(event.keyCode==13) messageSend()"; style="resize:none"></textarea>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div style="width: 40%; float: left; box-sizing: border-box;">
+					<div>透明通道</div>
+					<table>
+						<tr>
+							<td>
+								  <textarea id="dataColl" name="dataColl" disabled="disabled" type="textarea" cols="50" rows="17" style="resize:none"></textarea>
+						    </td>
+						</tr>
+						<tr>
+							<td>
+								<input id="dataMsg" placeholder="请输入内容" name="dataMsg" type="text" onkeydown="if(event.keyCode==13) dataSend()" style="resize:none"></textarea>
+							</td>
+						</tr>
+						
+					</table>
+				</div>
+			</div>
+			<div id="logDiv" style="width: auto;height: 200px;padding: 0 0 0 20px;">
+				<h3>日志结果展示：</h3>				
+				<div id="jp-container" style="width:1100px;height:150px;overflow: auto;">
+					<div id="logShow">
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/joinRoom.js"></script>
+	</body>
+</html>
